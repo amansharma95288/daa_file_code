@@ -1,1 +1,93 @@
+Q1. Given a sorted array of positive integers containing few duplicate elements, design an algorithm and implement it using a program to find whether the given key element is present in the array or not. If present, then also find the number of copies of given key. 
+(Time Complexity = O(log n)) 
 
+    
+#include <bits/stdc++.h>
+using namespace std; 
+int main(){ 
+intt, flag = 0; cin>>t;
+while(t!=0) {
+intn;
+cout<<"Enter the size of array: "; 
+cin>>n;
+int arr[n], key; 
+cout<<"Enter the elements: ";
+for(int i=0 ; i<n ; i++) 
+cin>>arr[i];
+sort(arr, arr+ n); 
+for(int i=1 ; i<n ; i++) {
+   if(arr[i] == arr[i-1]) {
+      flag= 1;
+      break; 
+     }  
+	 if(flag == 0) 
+      cout<<"NO\n";
+   else
+      cout<<"YES\n"; t--; 
+} 
+} 
+
+
+
+
+Q2. Given a sorted array of positive integers, design an algorithm and implement it using a program to find three indices i, j, k such that arr[i] + arr[j] = arr[k]. 
+
+    
+#include<iostream>
+using namespace std; 
+int main() {
+intt;
+cin>>t;
+while(t!=0) {
+intn, key, flag = 0; 
+cout<<"Enter the size of array: ";
+cin>>n; 
+int a[n]; 
+cout<<"Enter the elements of array: "; 
+for(int i=0 ; i<n ; i++)
+cin>>a[i];
+for(int i=0 ; i<n-2 ; i++) {
+  for(int j=i+1 ; j<n-1 ; j++) {
+    for(int k=j+1 ; k<n ; k++) {
+      if(a[i] + a[j] == a[k]) {
+        flag++; 
+        cout<<i+1<<" "<<j+1<<" "<<k+1<<"\n"; 
+      } 
+     } 
+    } 
+   } 
+	if(flag == 0) cout<<"No sequence found"; 
+  t--;
+}
+return 0;
+}
+
+
+
+
+Q3. Given an array of non-negative integers, design an algorithm and a program to count the number of pairs of integers such that their difference is equal to a given key, K. 
+    
+#include<iostream>
+using namespace std; 
+int main(){
+int t;
+cin>>t;
+while(t--){ 
+int n,key;
+cout<<"Enter the size of array: ";
+cin>>n;
+int arr[n];
+cout<<"Enter the size of array: ";
+for(int i=0 ;i<n ;i++) 
+cin>>arr[i];
+cout<<"Enter the key: "; 
+cin>>key; 
+for(int i=0 ;i<n-1 ; i++) {
+  for(int j=i+1 ; j<n ;j++){ 
+    if(abs(arr[i]- arr[j]) == key) 
+      cout<<"indexes are "<<i<<j<<" ";
+      }
+    }
+   }
+return 0; 
+} 
